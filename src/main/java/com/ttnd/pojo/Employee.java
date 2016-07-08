@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 
 
-@Entity(name="login")
+@Entity
 public class Employee {
 	 @Id
      @GeneratedValue
