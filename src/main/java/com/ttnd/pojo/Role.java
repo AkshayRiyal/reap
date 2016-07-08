@@ -1,3 +1,4 @@
+
 package com.ttnd.pojo;
 
 import javax.persistence.GeneratedValue;

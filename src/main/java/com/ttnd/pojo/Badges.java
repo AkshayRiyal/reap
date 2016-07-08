@@ -1,8 +1,10 @@
+
 package com.ttnd.pojo;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+@Entity
 public class Badges {
 	@Id @GeneratedValue 
 	private Integer badge_id;
@@ -34,3 +36,4 @@ public class Badges {
 	}
 
 }
+

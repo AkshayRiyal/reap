@@ -1,10 +1,11 @@
+
 package com.ttnd.pojo;
 
-import javax.persistence.GeneratedValue;
+import javax.persistence.Entity;
 import javax.persistence.Id;
-
+@Entity
 public class Department {
-	@Id @GeneratedValue
+	@Id
 	private Integer dept_id;
 	private String practice;
 	private String service_line;
@@ -28,3 +29,4 @@ public class Department {
 	}
 
 }
+
