@@ -1,9 +1,10 @@
 package com.ttnd.pojo;
 
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 public class Role {
-	@Id
+	@Id @GeneratedValue
 	private Integer role_id;
 	private String role_type;
 	

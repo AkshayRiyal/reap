@@ -1,9 +1,10 @@
 package com.ttnd.pojo;
 
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 public class Department {
-	@Id
+	@Id @GeneratedValue
 	private Integer dept_id;
 	private String practice;
 	private String service_line;
