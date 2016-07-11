@@ -1,19 +1,45 @@
 package com.ttnd.pojo;
 
-public class Recognise {
+import java.util.Date;
 
-	private	Integer rtid;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+public class Recognise {
+	@Id
+	@GeneratedValue
+	private Integer recognizeId;
+	@OneToOne
 	private Employee to;
+	@OneToOne
 	private Employee from;
 	private String reason;
 	private String karma;
-	private Badges b;
-    
-	public Integer getRtid() {
-		return rtid;
+	@OneToOne
+	private Badges badge;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date date;
+	public Recognise(Employee to, Employee from, String reason, String karma, Badges badge,
+			Date date) {
+		super();
+		
+		this.to = to;
+		this.from = from;
+		this.reason = reason;
+		this.karma = karma;
+		this.badge = badge;
+		this.date = date;
 	}
-	public void setRtid(Integer rtid) {
-		this.rtid = rtid;
+	public Integer getRecognizeId() {
+		return recognizeId;
+	}
+	public void setRecognizeId(Integer recognizeId) {
+		this.recognizeId = recognizeId;
 	}
 	public Employee getTo() {
 		return to;
@@ -39,10 +65,20 @@ public class Recognise {
 	public void setKarma(String karma) {
 		this.karma = karma;
 	}
-	public Badges getB() {
-		return b;
+	public Badges getBadge() {
+		return badge;
 	}
-	public void setB(Badges b) {
-		this.b = b;
+	public void setBadge(Badges badge) {
+		this.badge = badge;
 	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+  
+	
+
+	
 }

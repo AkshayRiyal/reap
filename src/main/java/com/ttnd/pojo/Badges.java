@@ -4,36 +4,37 @@ package com.ttnd.pojo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-@Entity
+
+@Entity(name = "badges")
 public class Badges {
-	@Id @GeneratedValue 
-	private Integer badge_id;
-	private Integer badge_type;
-	private Integer badge_weight;
+	@Id
+	@GeneratedValue
+	private Integer badgeId;
+	private String badgeName;
+	private Integer badgeWeight;
 
-	public Integer getBadge_id() {
-		return badge_id;
+	public Integer getBadgeId() {
+		return badgeId;
 	}
 
-	public void setBadge_id(Integer badge_id) {
-		this.badge_id = badge_id;
+	public void setBadgeId(Integer badgeId) {
+		this.badgeId = badgeId;
 	}
 
-	public Integer getBadge_weight() {
-		return badge_weight;
+	public String getBadgeName() {
+		return badgeName;
 	}
 
-	public void setBadge_weight(Integer badge_weight) {
-		this.badge_weight = badge_weight;
+	public void setBadgeName(String badgeName) {
+		this.badgeName = badgeName;
 	}
 
-	public Integer getBadge_type() {
-		return badge_type;
+	public Integer getBadgeWeight() {
+		return badgeWeight;
 	}
 
-	public void setBadge_type(Integer badge_type) {
-		this.badge_type = badge_type;
+	public void setBadgeWeight(Integer badgeWeight) {
+		this.badgeWeight = badgeWeight;
 	}
 
 }
-

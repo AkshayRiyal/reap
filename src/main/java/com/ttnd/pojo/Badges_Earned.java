@@ -2,69 +2,63 @@
 package com.ttnd.pojo;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+
+@Entity(name = "badgesEarned")
 public class Badges_Earned {
-	private Integer badges_earned_id;
-	private Employee sender;
-	private Employee receiver;
-	private Badges badges;
-	private Date earned_date;
-	private String reason;
-	private String karma;
+	@Id
+	@GeneratedValue
+	private Integer badgesEarnedId;
 
-	public Integer getBadges_earned_id() {
-		return badges_earned_id;
+	@OneToOne
+	private Employee employee;
+	@ManyToMany
+	private Set<Badges> badges;
+
+	 @ElementCollection(targetClass=Integer.class)
+		private List<Integer> value;
+
+	public Integer getBadgesEarnedId() {
+		return badgesEarnedId;
 	}
 
-	public void setBadges_earned_id(Integer badges_earned_id) {
-		this.badges_earned_id = badges_earned_id;
+	public void setBadgesEarnedId(Integer badgesEarnedId) {
+		this.badgesEarnedId = badgesEarnedId;
 	}
 
-	public Employee getSender() {
-		return sender;
+	public Employee getEmployee() {
+		return employee;
 	}
 
-	public void setSender(Employee sender) {
-		this.sender = sender;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 
-	public Employee getReceiver() {
-		return receiver;
-	}
-
-	public void setReceiver(Employee receiver) {
-		this.receiver = receiver;
-	}
-
-	public Date getEarned_date() {
-		return earned_date;
-	}
-
-	public void setEarned_date(Date earned_date) {
-		this.earned_date = earned_date;
-	}
-
-	public String getReason() {
-		return reason;
-	}
-
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
-
-	public String getKarma() {
-		return karma;
-	}
-
-	public void setKarma(String karma) {
-		this.karma = karma;
-	}
-
-	public Badges getBadges() {
+	public Set<Badges> getBadges() {
 		return badges;
 	}
 
-	public void setBadges(Badges badges) {
+	public void setBadges(Set<Badges> badges) {
 		this.badges = badges;
 	}
+
+	public List<Integer> getValue() {
+		return value;
+	}
+
+	public void setValue(List<Integer> value) {
+		this.value = value;
+	}
+	 
+	
+
+	
 }

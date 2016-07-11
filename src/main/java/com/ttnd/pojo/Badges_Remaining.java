@@ -1,12 +1,48 @@
 package com.ttnd.pojo;
 
-import javax.persistence.Entity;
+import java.util.List;
+import java.util.Set;
 
-@Entity
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity(name = "badgesRemaining")
 public class Badges_Remaining {
+	@Id
+	@GeneratedValue
+	private Integer reaminingId;
+	@OneToOne
 	private Employee eid;
-	private Badges bid;
-	private int badgesRemaining;
+	@ManyToMany
+	private Set<Badges> bid;
+	
+
+    @ElementCollection(targetClass=Integer.class)
+	private List<Integer> value;
+	
+	public List<Integer> getValue() {
+		return value;
+	}
+
+	public void setValue(List<Integer> value) {
+		this.value = value;
+	}
+
+
+
+	public Integer getReaminingId() {
+		return reaminingId;
+	}
+
+	public void setReaminingId(Integer reaminingId) {
+		this.reaminingId = reaminingId;
+	}
 
 	public Employee getEid() {
 		return eid;
@@ -16,20 +52,12 @@ public class Badges_Remaining {
 		this.eid = eid;
 	}
 
-	public Badges getBid() {
+	public Set<Badges> getBid() {
 		return bid;
 	}
 
-	public void setBid(Badges bid) {
+	public void setBid(Set<Badges> bid) {
 		this.bid = bid;
-	}
-
-	public int getBadgesRemaining() {
-		return badgesRemaining;
-	}
-
-	public void setBadgesRemaining(int badgesRemaining) {
-		this.badgesRemaining = badgesRemaining;
 	}
 
 }

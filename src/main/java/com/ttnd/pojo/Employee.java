@@ -2,95 +2,109 @@ package com.ttnd.pojo;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-@Entity
+
+@Entity(name="employee")
 public class Employee {
 	@Id
 	@GeneratedValue
-	private Long eid;
+	private Integer eid;
 	private String first_name;
 	private String last_name;
+	@Temporal(TemporalType.DATE)
 	private Date dob;
-	private String username;
+	@Column(unique=true)
+	private String email;
 	private String password;
 	private String gender;
-	private Department department;
-
-	private Integer dept_id;
-
-	public Long getEid() {
+	@OneToOne
+	private Services serviceName;
+	@OneToOne
+	private Practice practiceName;
+	private String role;
+	
+	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public Integer getEid() {
 		return eid;
 	}
-
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		this.eid = eid;
 	}
-
 	public String getFirst_name() {
 		return first_name;
 	}
-
 	public void setFirst_name(String first_name) {
 		this.first_name = first_name;
 	}
-
 	public String getLast_name() {
 		return last_name;
 	}
-
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
-
 	public Date getDob() {
 		return dob;
 	}
-
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-
-	public String getUsername() {
-		return username;
+	
+	public String getEmail() {
+		return email;
 	}
-
-	public void setUsername(String username) {
-		this.username = username;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	public String getGender() {
 		return gender;
 	}
-
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
-	public Integer getDept_id() {
-		return dept_id;
+	public Services getServiceName() {
+		return serviceName;
 	}
-
-	public void setDept_id(Integer dept_id) {
-		this.dept_id = dept_id;
+	public void setServiceName(Services serviceName) {
+		this.serviceName = serviceName;
 	}
-
-	public Department getDepartment() {
-		return department;
+	public Practice getPracticeName() {
+		return practiceName;
 	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
+	public void setPracticeName(Practice practiceName) {
+		this.practiceName = practiceName;
 	}
-
+	public Employee(String first_name, String last_name, Date dob, String email, String password, String gender,
+			Services serviceName, Practice practiceName, String role) {
+		super();
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.dob = dob;
+		this.email = email;
+		this.password = password;
+		this.gender = gender;
+		this.serviceName = serviceName;
+		this.practiceName = practiceName;
+		this.role=role;
+	}
+	
+	
 }
